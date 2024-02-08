@@ -83,7 +83,7 @@ print('Mean absolute Error:', score_2)
 
 import pickle
 
-Save the trained model to a .pkl file using pickle
+#Save the trained model to a .pkl file using pickle
 model_file_path = ("V:\\my project\\xgb_model.pkl")
 with open(model_file_path, 'wb') as file:
     pickle.dump(model, file)
