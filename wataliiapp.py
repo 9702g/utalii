@@ -208,17 +208,17 @@ if st.button("Make Prediction"):
 
 # Load the model
 
-model_path =("V:\\Git_repo\\utalii\\xgb_model.pkl")
+# Load the model
+model_file_path = ("V:\\Git_repo\\utalii\\xgb_model.pkl")
 
-
-if os.path.exists(model_path):
-    with open(model_path, "rb") as f:
+if os.path.exists(model_file_path):
+    with open(model_file_path, "rb") as f:
         model = pickle.load(f)
 else:
     st.error("Model file not found. Please upload a valid model file.")
 
 # If form submitted
-
+if st.button("Make Prediction"):
     data = pd.DataFrame(input_data, index=[0])
 
     # Factorize object columns
