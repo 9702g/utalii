@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -13,11 +11,6 @@ st.image("V:\\Git_repo\\utalii\\images (1).jpg")
 
 # Form
 my_form = st.form(key="financial_form")
-
-# Function to transform Yes and No options
-def func(value):
-    return "Yes" if value == 1 else "No"
-
 
 # Input for country
 country = st.selectbox("Country", [
@@ -111,30 +104,22 @@ if st.button("Make Prediction"):
         "payment_mode": payment_mode, "first_trip": first_trip,
         "most_impressing": most_impressing
     }
-    # Now you can use input_data to make predictions with your model
 
-
-# Load the model
-
-# Load the model
-model_file_path = ("V:\\Git_repo\\utalii\\xgb_model.pkl")
-
-if os.path.exists(model_file_path):
-    with open(model_file_path, "rb") as f:
-        model = pickle.load(f)
-else:
-    st.error("Model file not found. Please upload a valid model file.")
-
-# If form submitted
-if st.button("Make Prediction"):
-    data = pd.DataFrame(input_data, index=[0])
+    # Load the model
+    model_file_path = "V:\\Git_repo\\utalii\\xgb_model.pkl"
+    if os.path.exists(model_file_path):
+        with open(model_file_path, "rb") as f:
+            model = pickle.load(f)
+    else:
+        st.error("Model file not found. Please upload a valid model file.")
 
     # Factorize object columns
-    for colname in data.select_dtypes("object"):
-        data[colname] = data[colname].factorize()[0]
+    input_df = pd.DataFrame(input_data, index=[0])
+    for colname in input_df.select_dtypes("object"):
+        input_df[colname] = input_df[colname].factorize()[0]
 
     # Perform prediction
-    prediction = model.predict(data)
+    prediction = model.predict(input_df)
 
     # Display results
     st.header("Results")
