@@ -107,6 +107,7 @@ if st.button("Make Prediction"):
 
     # Load the model
   # Load the model
+# Load the model
 model_file_path = ("V:\\Git_repo\\utalii\\xgb_model.pkl")
 if os.path.exists(model_file_path):
     with open(model_file_path, "rb") as f:
@@ -115,7 +116,7 @@ else:
     st.error("Model file not found. Please upload a valid model file.")
 
 # Button to make prediction
-if st.button("Make Prediction"):
+if st.button("Make Prediction 1"):
     # Prepare input data
     input_data = {
         "country": country, "age_group": age_group, "travel_with": travel_with,
