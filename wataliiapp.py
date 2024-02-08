@@ -8,7 +8,7 @@ import sklearn.datasets
 from sklearn.model_selection import train_test_split
 from xgboost import XGBRegressor 
 from sklearn import metrics
-data=pd.read_csv(""V:\\Git_repo\\utalii\\Kenyan_data.csv"")
+data=pd.read_csv("V:\\Git_repo\\utalii\\Kenyan_data.csv")
 # Clearing errors and missing values from data set
 data['travel_with'] = data['travel_with'].fillna('Alone')
 data['total_female'] = data['total_female'].fillna(1.0)
