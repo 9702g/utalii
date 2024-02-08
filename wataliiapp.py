@@ -115,7 +115,7 @@ if st.button("Make Prediction"):
 
 # Load the model
 
-model_path = r"V:\Git_repo\utalii\xgb_model.pkl"
+model_path =("V:\\Git_repo\\utalii\\xgb_model.pkl")
 
 
 if os.path.exists(model_path):
