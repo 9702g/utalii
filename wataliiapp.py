@@ -114,7 +114,7 @@ if st.button("Make Prediction"):
 
 
 # Load the model
-model_path = "V:\\Kenyan data\\new_tou_app\\xgb_model.pkl"
+model_path = ("V:\Git_repo\utalii\xgb_model.pkl")
 if os.path.exists(model_path):
     with open(model_path, "rb") as f:
         model = pickle.load(f)
