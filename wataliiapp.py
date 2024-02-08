@@ -30,83 +30,65 @@ country = st.selectbox("Country", [
     "DJIBOUTI", "CYPRUS", "ARGENTINA", "URUGUAY", "MOROCCO", "THAILAND", "BERMUDA", "ESTONIA",
     "BOTSWANA", "VIETNAM", "GUINEA", "MACEDONIA", "HAITI", "LIBERIA", "SAUDI ARABIA", "BOSNIA",
      "PERU", "BANGLADESH", "JAMAICA", "SOMALIA"
-])
+], key="country")
 
 # Input for age group
-age_group = st.selectbox("Age Group", ["1-24", "25-44", "45-64", "65+"])
+age_group = st.selectbox("Age Group", ["1-24", "25-44", "45-64", "65+"], key="age_group")
 
 # Input for travel with
-travel_with = st.selectbox("Travel With", ["Friends/Relatives", "Alone", "Spouse", "Children", "Spouse and Children"])
+travel_with = st.selectbox("Travel With", ["Friends/Relatives", "Alone", "Spouse", "Children", "Spouse and Children"], key="travel_with")
 
 # Input for total number of females
-total_female = st.number_input("Total Number of Females", min_value=0)
+total_female = st.number_input("Total Number of Females", min_value=0, key="total_female")
 
 # Input for total number of males
-total_male = st.number_input("Total Number of Males", min_value=0)
+total_male = st.number_input("Total Number of Males", min_value=0, key="total_male")
 
 # Input for purpose
 purpose = st.selectbox("Purpose", [
     "Leisure and Holidays", "Visiting Friends and Relatives", "Business",
     "Meetings and Conference", "Volunteering", "Scientific and Academic", "Other"
-])
+], key="purpose")
 
 # Input for main activity
 main_activity = st.selectbox("Main Activity", [
     "Wildlife tourism", "Cultural tourism", "Mountain climbing", "Beach tourism",
     "Conference tourism", "Hunting tourism", "Bird watching", "Business", "Diving and Sport Fishing"
-])
+], key="main_activity")
 
 # Input for tour arrangement
-tour_arrangement = st.selectbox("Tour Arrangement", ["Independent", "Package Tour"])
+tour_arrangement = st.selectbox("Tour Arrangement", ["Independent", "Package Tour"], key="tour_arrangement")
 
 # Input for package_transport_international
-package_transport_international = st.selectbox("Package Transport International", ["No", "Yes"])
+package_transport_international = st.selectbox("Package Transport International", ["No", "Yes"], key="package_transport_international")
 
 # Input for package_food
-package_food = st.selectbox("Package Food", ["No", "Yes"])
+package_food = st.selectbox("Package Food", ["No", "Yes"], key="package_food")
 
 # Input for package_transport_local
-package_transport_local = st.selectbox("Package Transport Local", ["No", "Yes"])
+package_transport_local = st.selectbox("Package Transport Local", ["No", "Yes"], key="package_transport_local")
 
 # Input for package_sightseeing
-package_sightseeing = st.selectbox("Package Sightseeing", ["No", "Yes"])
+package_sightseeing = st.selectbox("Package Sightseeing", ["No", "Yes"], key="package_sightseeing")
 
 # Input for package_guided_tour
-package_guided_tour = st.selectbox("Package Guided Tour", ["No", "Yes"])
+package_guided_tour = st.selectbox("Package Guided Tour", ["No", "Yes"], key="package_guided_tour")
 
 # Input for package_insurance
-package_insurance = st.selectbox("Package Insurance", ["No", "Yes"])
+package_insurance = st.selectbox("Package Insurance", ["No", "Yes"], key="package_insurance")
 
 # Input for nights_stayed
-nights_stayed = st.number_input("Nights Stayed", min_value=0)
+nights_stayed = st.number_input("Nights Stayed", min_value=0, key="nights_stayed")
 
 # Input for payment_mode
-payment_mode = st.selectbox("Payment Mode", ["Cash", "Credit Card", "Other", "Travellers Cheque"])
+payment_mode = st.selectbox("Payment Mode", ["Cash", "Credit Card", "Other", "Travellers Cheque"], key="payment_mode")
 
 # Input for first_trip
-first_trip = st.selectbox("First Trip", ["No", "Yes"])
+first_trip = st.selectbox("First Trip", ["No", "Yes"], key="first_trip")
 
 # Input for most_impressing
-most_impressing = st.text_input("Most Impressions")
+most_impressing = st.text_input("Most Impressions", key="most_impressing")
 
-# Button to make prediction
-if st.button("Make Prediction"):
-    # Prepare input data
-    input_data = {
-        "country": country, "age_group": age_group, "travel_with": travel_with,
-        "total_female": total_female, "total_male": total_male,
-        "purpose": purpose, "main_activity": main_activity,
-        "tour_arrangement": tour_arrangement,
-        "package_transport_international": package_transport_international,
-        "package_food": package_food, "package_transport_local": package_transport_local,
-        "package_sightseeing": package_sightseeing, "package_guided_tour": package_guided_tour,
-        "package_insurance": package_insurance, "nights_stayed": nights_stayed,
-        "payment_mode": payment_mode, "first_trip": first_trip,
-        "most_impressing": most_impressing
-    }
-
-    # Load the model
-  # Load the model
 # Load the model
 model_file_path = ("V:\\Git_repo\\utalii\\xgb_model.pkl")
 if os.path.exists(model_file_path):
@@ -116,7 +98,7 @@ else:
     st.error("Model file not found. Please upload a valid model file.")
 
 # Button to make prediction
-if st.button("Make Prediction 1"):
+if st.button("Make Prediction", key="make_prediction"):
     # Prepare input data
     input_data = {
         "country": country, "age_group": age_group, "travel_with": travel_with,
