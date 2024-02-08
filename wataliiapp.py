@@ -106,12 +106,29 @@ if st.button("Make Prediction"):
     }
 
     # Load the model
-    model_file_path = "V:\\Git_repo\\utalii\\xgb_model.pkl"
-    if os.path.exists(model_file_path):
-        with open(model_file_path, "rb") as f:
-            model = pickle.load(f)
-    else:
-        st.error("Model file not found. Please upload a valid model file.")
+  # Load the model
+model_file_path = ("V:\\Git_repo\\utalii\\xgb_model.pkl")
+if os.path.exists(model_file_path):
+    with open(model_file_path, "rb") as f:
+        model = pickle.load(f)
+else:
+    st.error("Model file not found. Please upload a valid model file.")
+
+# Button to make prediction
+if st.button("Make Prediction"):
+    # Prepare input data
+    input_data = {
+        "country": country, "age_group": age_group, "travel_with": travel_with,
+        "total_female": total_female, "total_male": total_male,
+        "purpose": purpose, "main_activity": main_activity,
+        "tour_arrangement": tour_arrangement,
+        "package_transport_international": package_transport_international,
+        "package_food": package_food, "package_transport_local": package_transport_local,
+        "package_sightseeing": package_sightseeing, "package_guided_tour": package_guided_tour,
+        "package_insurance": package_insurance, "nights_stayed": nights_stayed,
+        "payment_mode": payment_mode, "first_trip": first_trip,
+        "most_impressing": most_impressing
+    }
 
     # Factorize object columns
     input_df = pd.DataFrame(input_data, index=[0])
